@@ -1,0 +1,54 @@
+CÓDIGO MALICIOSO LINUX
+#!/bin/bash
+# ==============================================================================
+# SCRIPT DE SIMULAÇÃO DE COMPORTAMENTO SUSPEITO (LABORATÓRIO BLUE TEAM - LINUX)
+# ATENÇÃO: Executa apenas ações simuladas dentro de uma pasta de testes isolada.
+# ==============================================================================
+
+# 1. Definição do ambiente isolado (Área de Trabalho ou Home)
+DIRETORIO_TESTE="$HOME/Desktop/lab_simulacao_ransomware"
+# Caso não tenha a pasta Desktop, cria na pasta Home do usuário
+if [ ! -d "$HOME/Desktop" ]; then
+    DIRETORIO_TESTE="$HOME/lab_simulacao_ransomware"
+fi
+
+echo -e "\e[36m[+] Criando diretório de testes isolado em: $DIRETORIO_TESTE\e[0m"
+mkdir -p "$DIRETORIO_TESTE"
+
+# 2. CRIAÇÃO MASSIVA DE ARQUIVOS (Simulando geração de dados/I/O alto)
+echo -e "\e[33m[!] Iniciando criação massiva de arquivos confidenciais...\e[0m"
+for i in {1..40}; do
+    echo "CONTEÚDO CONFIDENCIAL CRÍTICO DA EMPRESA - ARQUIVO NUMERO $i" > "$DIRETORIO_TESTE/relatorio_financeiro_$i.txt"
+    sleep 0.02 # Pequeno intervalo para simular escrita sequencial rápida
+done
+
+# 3. RENOMEAÇÃO EM SEQUÊNCIA (O comportamento clássico de criptografia de Ransomware)
+echo -e "\e[31m[!] Alerta: Simulando comportamento de Ransomware (Renomeação em massa)...\e[0m"
+sleep 2
+
+for arquivo in "$DIRETORIO_TESTE"/*.txt; do
+    if [ -f "$arquivo" ]; then
+        mv "$arquivo" "${arquivo}.locked"
+        sleep 0.02
+    fi
+done
+
+# 4. USO DE COMANDOS ADMINISTRATIVOS SENSÍVEIS (Inibição de Defesas / Descoberta)
+echo -e "\e[35m[!] Executando comandos administrativos altamente monitorados pelo SOC...\e[0m"
+sleep 1
+
+# Comando A: Tentativa de ler um arquivo altamente restrito (Violação de Política / Descoberta de Credenciais)
+echo -e "\e[90m -> Executando: head /etc/shadow (Acesso a hashes de senhas)\e[0m"
+head /etc/shadow 2>/dev/null
+
+# Comando B: Varredura de conexões e sockets internos abertos (Reconhecimento de rede interna)
+echo -e "\e[90m -> Executando: ss -tulpn ou netstat (Mapeamento de portas)\e[0m"
+ss -tulpn 2>/dev/null
+
+# Comando C: Chamada de múltiplos comandos de identificação em sequência rápida (Impressão digital do atacante)
+echo -e "\e[90m -> Executando: id, whoami e uname -a\e[0m"
+id > /dev/null
+whoami > /dev/null
+uname -a > /dev/null
+
+echo -e "\n\e[32m[✓] Simulação concluída com sucesso! Verifique o painel do Wazuh.\e[0m"
