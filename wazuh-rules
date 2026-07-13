@@ -1,0 +1,13 @@
+<group name="local,syslog,sshd,">
+  <!-- Regra Customizada para Detecção do Simulador SOC -->
+  <rule id="100010" level="12">
+    <if_sid>5402</if_sid>
+    <field name="command">simulador_soc.sh</field>
+    <description>Alerta Critico SOC: Execução do Script de Simulação de Ransomware detectado via sudo por $(data.srcuser)</description>
+    <mitre>
+      <id>T1059.004</id>
+      <id>T1486</id>
+    </mitre>
+    <group>linux,sudo,simulacao_ransomware,</group>
+  </rule>
+</group>
