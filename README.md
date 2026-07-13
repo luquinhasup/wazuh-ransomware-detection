@@ -15,11 +15,17 @@ O projeto foi dividido em duas fases principais:
 ## 🔴 1. Simulação da Ameaça (Red Team)
 
 O script `simulador_soc.sh` executa as seguintes ações simuladas para gerar telemetria:
-* **Criação massiva de arquivos:** Gera 40 arquivos de texto simulando alta atividade de escrita em disco (I/O)[cite: 2].
-* **Criptografia Simulada:** Renomeia em massa os arquivos criados para a extensão `.locked` (padrão comportamental de Ransomwares)[cite: 2].
-* **Acesso Restrito:** Tenta ler hashes de senhas no arquivo `/etc/shadow`[cite: 2].
-* **Reconhecimento de Rede:** Mapeia portas e conexões ativas utilizando `ss -tulpn`[cite: 2].
-* **Coleta de Identidade:** Executa rapidamente comandos de descoberta de privilégios (`id`, `whoami`, `uname -a`)[cite: 2].
+* **Criação massiva de arquivos:** Gera 40 arquivos de texto simulando alta atividade de escrita em disco (I/O).
+* **Criptografia Simulada:** Renomeia em massa os arquivos criados para a extensão `.locked` (padrão comportamental de Ransomwares).
+* **Acesso Restrito:** Tenta ler hashes de senhas no arquivo `/etc/shadow`.
+* **Reconhecimento de Rede:** Mapeia portas e conexões ativas utilizando `ss -tulpn`.
+* **Coleta de Identidade:** Executa rapidamente comandos de descoberta de privilégios (`id`, `whoami`, `uname -a`).
+
+
+<img width="1710" height="1107" alt="Captura de Tela 2026-06-26 às 20 54 47" src="https://github.com/user-attachments/assets/610260f1-0c04-4c03-aa9d-2db9defa7bca" />
+
+<img width="1456" height="1107" alt="Captura de Tela 2026-06-26 às 21 02 37" src="https://github.com/user-attachments/assets/130ea5f8-b01d-4c1d-9bdc-e64f17856990" />
+
 
 ### Código do Script Utilizado:
 ```bash
@@ -50,5 +56,3 @@ whoami > /dev/null
 uname -a > /dev/null
 
 
-<img width="1456" height="1107" alt="Captura de Tela 2026-06-26 às 21 02 37" src="https://github.com/user-attachments/assets/16f80ede-dcaf-40c3-8097-2c64729e5c80" />
-<img width="1710" height="1107" alt="Captura de Tela 2026-06-26 às 20 54 47" src="https://github.com/user-attachments/assets/6ef0691f-b179-4b03-bc72-2ba99e505f8c" />
