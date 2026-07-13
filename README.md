@@ -48,3 +48,7 @@ ss -tulpn 2>/dev/null
 id > /dev/null
 whoami > /dev/null
 uname -a > /dev/null
+
+
+<img width="1456" height="1107" alt="Captura de Tela 2026-06-26 às 21 02 37" src="https://github.com/user-attachments/assets/16f80ede-dcaf-40c3-8097-2c64729e5c80" />
+<img width="1710" height="1107" alt="Captura de Tela 2026-06-26 às 20 54 47" src="https://github.com/user-attachments/assets/6ef0691f-b179-4b03-bc72-2ba99e505f8c" />
